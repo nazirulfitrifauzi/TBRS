@@ -90,8 +90,8 @@
         </div>
     </div>
     <div class="hidden lg:block relative w-0 flex-1">
-        <img class="absolute inset-0 h-full w-full object-fill" src="{{ asset('img') }}/cbrm/Poster_Mobilepreneur.png"
-            alt="" />
+        {{-- <img class="absolute inset-0 h-full w-full object-fill" src="{{ asset('img') }}/cbrm/Poster_Mobilepreneur.png"
+        alt="" /> --}}
     </div>
 </div>
 @endsection
