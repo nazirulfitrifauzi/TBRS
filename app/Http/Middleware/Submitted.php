@@ -20,6 +20,6 @@ class Submitted
         if (Auth::user()->submit == 0) {
             return $next($request);
         }
-        return redirect('status')->with('error', 'Anda tidak boleh membuat perubahan setelah permohonan berjaya dihantar.');
+        return redirect()->route('status')->with('error', 'Anda tidak boleh membuat perubahan setelah permohonan berjaya dihantar.');
     }
 }
