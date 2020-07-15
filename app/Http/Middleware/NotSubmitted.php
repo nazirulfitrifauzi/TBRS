@@ -19,6 +19,6 @@ class NotSubmitted
         if (Auth::user()->submit == 1) {
             return $next($request);
         }
-        return redirect('home')->with('error', 'Anda belum menghantar sebarang permohonan.');
+        return redirect()->route('home')->with('error', 'Anda belum menghantar sebarang permohonan.');
     }
 }

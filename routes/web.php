@@ -32,22 +32,18 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/home', 'RedirectController@home')->name('home');
 
     /** Mobilepreneur Controller */
-    Route::get('/mobile', 'MobileController@index')->name('mobile');
-    Route::post('/mobile-storePeribadi', 'MobileController@storePeribadi')->name('mobile.storePeribadi');
-    Route::post('/mobile-storePerniagaan', 'MobileController@storePerniagaan')->name('mobile.storePerniagaan');
-    Route::post('/mobile-storePinjaman', 'MobileController@storePinjaman')->name('mobile.storePinjaman');
-    Route::delete('/mobile-deleteGambar/{id}', 'MobileController@deleteGambar')->name('mobile.deleteGambar');
-    Route::delete('/mobile-deleteKP/{id}', 'MobileController@deleteKP')->name('mobile.deleteKP');
-    Route::delete('/mobile-deleteKPP/{id}', 'MobileController@deleteKPP')->name('mobile.deleteKPP');
-    Route::delete('/mobile-deleteAsk/{id}', 'MobileController@deleteAsk')->name('mobile.deleteAsk');
-    Route::delete('/mobile-deleteBank/{id}', 'MobileController@deleteBank')->name('mobile.deleteBank');
-    Route::delete('/mobile-deleteBil/{id}', 'MobileController@deleteBil')->name('mobile.deleteBil');
-    Route::delete('/mobile-deleteSupportLetter/{id}', 'MobileController@deleteSupportLetter')->name('mobile.deleteSupportLetter');
-    Route::delete('/mobile-deleteMotorcyclePicture/{id}', 'MobileController@deleteMotorcyclePicture')->name('mobile.deleteMotorcyclePicture');
-    Route::delete('/mobile-deleteDrivingLicense/{id}', 'MobileController@deleteDrivingLicense')->name('mobile.deleteDrivingLicense');
-    Route::delete('/mobile-deleteMotorcycleGrant/{id}', 'MobileController@deleteMotorcycleGrant')->name('mobile.deleteMotorcycleGrant');
-    Route::delete('/mobile-deleteRoadtax/{id}', 'MobileController@deleteRoadtax')->name('mobile.deleteRoadtax');
-    Route::get('ajaxdata/mobile-getCawangan', 'MobileController@getCawangan')->name('mobile.getCawangan');
-    Route::get('ajaxdata/mobile-getAktiviti', 'MobileController@getAktiviti')->name('mobile.getAktiviti');
-    Route::get('/mobile-status', 'MobileController@status')->name('mobile.status');
+    Route::get('/sptp', 'MobileController@index')->name('mobile');
+    Route::post('/sptp-storePeribadi', 'MobileController@storePeribadi')->name('mobile.storePeribadi');
+    Route::post('/sptp-storePerniagaan', 'MobileController@storePerniagaan')->name('mobile.storePerniagaan');
+    Route::post('/sptp-storePinjaman', 'MobileController@storePinjaman')->name('mobile.storePinjaman');
+    Route::delete('/sptp-deleteGambar/{id}', 'MobileController@deleteGambar')->name('mobile.deleteGambar');
+    Route::delete('/sptp-deleteKP/{id}', 'MobileController@deleteKP')->name('mobile.deleteKP');
+    Route::delete('/sptp-deleteKPP/{id}', 'MobileController@deleteKPP')->name('mobile.deleteKPP');
+    Route::delete('/sptp-deleteSSM/{id}', 'MobileController@deleteSSM')->name('mobile.deleteSSM');
+    Route::delete('/sptp-deleteBank/{id}', 'MobileController@deleteBank')->name('mobile.deleteBank');
+    Route::delete('/sptp-deleteBankComp/{id}', 'MobileController@deleteBankComp')->name('mobile.deleteBankComp');
+    Route::delete('/sptp-deleteBil/{id}', 'MobileController@deleteBil')->name('mobile.deleteBil');
+    Route::get('ajaxdata/sptp-getCawangan', 'MobileController@getCawangan')->name('mobile.getCawangan');
+    Route::get('ajaxdata/sptp-getAktiviti', 'MobileController@getAktiviti')->name('mobile.getAktiviti');
+    Route::get('/sptp-status', 'MobileController@status')->name('mobile.status');
 });

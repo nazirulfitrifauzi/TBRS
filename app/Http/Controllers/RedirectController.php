@@ -10,9 +10,9 @@ class RedirectController extends Controller
     {
         if (Auth::user()) {
             if (auth()->user()->submit === '1') {
-                return redirect('mobile-status');
+                return redirect()->route('mobile-status');
             } else {
-                return redirect('home');
+                return redirect()->route('home');
             }
         } else {
             return view('auth.login');
@@ -24,7 +24,7 @@ class RedirectController extends Controller
         if (is_null(auth()->user()->scheme_code)) {
             return view('landing');
         } else {
-            return redirect('mobile');
+            return redirect()->route('mobile');
         }
     }
 }

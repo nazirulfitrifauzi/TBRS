@@ -1,6 +1,4 @@
-<div 
-    x-show="tab === 'tab3'"
->
+<div x-show="tab === 'tab3'">
     <form method="post" action="{{ route('mobile.storePinjaman') }}" enctype="multipart/form-data">
         @csrf
 
@@ -16,105 +14,126 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div>
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="purpose"
-                                        class="block text-sm font-medium leading-5 text-gray-700">Tujuan Pembiayaan
-                                        <span class="text-red-700">*</span></label>
-                                    <select id="purpose" name="purpose"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                        onchange="purposeFunction()"
-                                    >
-                                        <option value="">Sila Pilih Tujuan Pembiayaan</option>
-                                        <option value="1" @if(isset(auth()->user()->pinjaman->purpose))
-                                            @if(auth()->user()->pinjaman->purpose == '1')
-                                            selected
-                                            @else {{ old('purpose') == '1' ? 'selected':'' }} @endif
-                                            @else{{ old('purpose') == '1' ? 'selected':'' }}@endif
-                                            >Pembelian Motosikal</option>
-                                        <option value="2" @if(isset(auth()->user()->pinjaman->purpose))
-                                            @if(auth()->user()->pinjaman->purpose == '2')
-                                            selected
-                                            @else {{ old('purpose') == '2' ? 'selected':'' }} @endif
-                                            @else{{ old('purpose') == '2' ? 'selected':'' }}@endif
-                                            >Baik Pulih Motosikal</option>
-                                    </select>
-                                    @error('purpose')
-                                    <p class="text-red-500 text-xs italic mt-4">
-                                        {{ $message }}
-                                    </p>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-6 gap-6 mt-6">
+                            <div class="grid grid-cols-6 gap-6 mt-1">
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="purchase_price"
-                                        class="block text-sm font-medium leading-5 text-gray-700">Jumlah Pembiayaan Yang
-                                        Diperlukan <span class="text-red-700">*</span></label>
+                                        class="block text-sm font-medium leading-5 text-gray-700">
+                                            Jumlah Pembiayaan Yang Diperlukan <span class="text-red-700">*</span></label>
                                     <select id="purchase_price" name="purchase_price"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                        <option value="">Sila Pilih Jumlah Pembiayaan</option>
-                                        <option value="1000" class="baiki" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '1000')
-                                            selected
-                                            @else {{ old('purchase_price') == '1000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '1000' ? 'selected':'' }}@endif
-                                            >RM 1,000.00</option>
-                                        <option value="2000" class="baiki" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '2000')
-                                            selected
-                                            @else {{ old('purchase_price') == '2000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '2000' ? 'selected':'' }}@endif
-                                            >RM 2,000.00</option>
-                                        <option value="3000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '3000')
-                                            selected
-                                            @else {{ old('purchase_price') == '3000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '3000' ? 'selected':'' }}@endif
-                                            >RM 3,000.00</option>
-                                        <option value="4000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '4000')
-                                            selected
-                                            @else {{ old('purchase_price') == '4000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '4000' ? 'selected':'' }}@endif
-                                            >RM 4,000.00</option>
-                                        <option value="5000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '5000')
-                                            selected
-                                            @else {{ old('purchase_price') == '5000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '5000' ? 'selected':'' }}@endif
-                                            >RM 5,000.00</option>
-                                        <option value="6000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '6000')
-                                            selected
-                                            @else {{ old('purchase_price') == '6000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '6000' ? 'selected':'' }}@endif
-                                            >RM 6,000.00</option>
-                                        <option value="7000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '7000')
-                                            selected
-                                            @else {{ old('purchase_price') == '7000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '7000' ? 'selected':'' }}@endif
-                                            >RM 7,000.00</option>
-                                        <option value="8000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '8000')
-                                            selected
-                                            @else {{ old('purchase_price') == '8000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '8000' ? 'selected':'' }}@endif
-                                            >RM 8,000.00</option>
-                                        <option value="9000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '9000')
-                                            selected
-                                            @else {{ old('purchase_price') == '9000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '9000' ? 'selected':'' }}@endif
-                                            >RM 9,000.00</option>
-                                        <option value="10000" class="beli" @if(isset(auth()->user()->pinjaman->purchase_price))
-                                            @if(auth()->user()->pinjaman->purchase_price == '10000')
-                                            selected
-                                            @else {{ old('purchase_price') == '10000' ? 'selected':'' }} @endif
-                                            @else{{ old('purchase_price') == '10000' ? 'selected':'' }}@endif
-                                            >RM 10,000.00</option>
-                                    </select>
+                                            class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                                <option value="">Sila Pilih Jumlah Pembiayaan</option>
+                                                <option value="1000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '1000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '1000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '1000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 1,000.00</option>
+                                                <option value="2000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '2000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '2000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '2000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 2,000.00</option>
+                                                <option value="3000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '3000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '3000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '3000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 3,000.00</option>
+                                                <option value="4000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '4000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '4000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '4000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 4,000.00</option>
+                                                <option value="5000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '5000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '5000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '5000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 5,000.00</option>
+                                                <option value="6000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '6000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '6000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '6000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 6,000.00</option>
+                                                <option value="7000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '7000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '7000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '7000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 7,000.00</option>
+                                                <option value="8000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '8000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '8000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '8000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 8,000.00</option>
+                                                <option value="9000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '9000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '9000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '9000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 9,000.00</option>
+                                                <option value="10000"
+                                                    @if(isset(auth()->user()->pinjaman->purchase_price))
+                                                        @if(auth()->user()->pinjaman->purchase_price == '10000')
+                                                            selected
+                                                        @else
+                                                            {{ old('purchase_price') == '10000' ? 'selected':'' }}
+                                                        @endif
+                                                    @else
+                                                        {{ old('purchase_price') == '10000' ? 'selected':'' }}
+                                                    @endif
+                                                >RM 10,000.00</option>
+                                        </select>
+
                                     @error('purchase_price')
                                     <p class="text-red-500 text-xs italic mt-4">
                                         {{ $message }}
@@ -128,25 +147,41 @@
                                     <select id="duration" name="duration"
                                         class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                         <option value="">Sila Pilih Tempoh Pembayaran</option>
-                                        <option value="12" @if(isset(auth()->user()->pinjaman->duration))
-                                            @if(auth()->user()->pinjaman->duration == '12')
-                                            selected
-                                            @else {{ old('duration') == '12' ? 'selected':'' }} @endif
-                                            @else{{ old('duration') == '12' ? 'selected':'' }}@endif
-                                            >12 Bulan</option>
-                                        <option value="24" @if(isset(auth()->user()->pinjaman->duration))
-                                            @if(auth()->user()->pinjaman->duration == '24')
-                                            selected
-                                            @else {{ old('duration') == '24' ? 'selected':'' }} @endif
-                                            @else{{ old('duration') == '24' ? 'selected':'' }}@endif
-                                            >24 Bulan</option>
-                                        <option value="36" @if(isset(auth()->user()->pinjaman->duration))
-                                            @if(auth()->user()->pinjaman->duration == '36')
-                                            selected
-                                            @else {{ old('duration') == '36' ? 'selected':'' }} @endif
-                                            @else{{ old('duration') == '36' ? 'selected':'' }}@endif
-                                            >36 Bulan</option>
+                                        <option value="12"
+                                            @if(isset(auth()->user()->pinjaman->duration))
+                                                @if(auth()->user()->pinjaman->duration == '12')
+                                                    selected
+                                                @else
+                                                    {{ old('duration') == '12' ? 'selected':'' }}
+                                                @endif
+                                            @else
+                                                {{ old('duration') == '12' ? 'selected':'' }}
+                                            @endif
+                                        >12 Bulan</option>
+                                        <option value="24"
+                                            @if(isset(auth()->user()->pinjaman->duration))
+                                                @if(auth()->user()->pinjaman->duration == '24')
+                                                    selected
+                                                @else
+                                                    {{ old('duration') == '24' ? 'selected':'' }}
+                                                @endif
+                                            @else
+                                                {{ old('duration') == '24' ? 'selected':'' }}
+                                            @endif
+                                        >24 Bulan</option>
+                                        <option value="36"
+                                            @if(isset(auth()->user()->pinjaman->duration))
+                                                @if(auth()->user()->pinjaman->duration == '36')
+                                                    selected
+                                                @else
+                                                    {{ old('duration') == '36' ? 'selected':'' }}
+                                                @endif
+                                            @else
+                                                {{ old('duration') == '36' ? 'selected':'' }}
+                                            @endif
+                                        >36 Bulan</option>
                                     </select>
+
                                     @error('duration')
                                     <p class="text-red-500 text-xs italic mt-4">
                                         {{ $message }}
@@ -176,7 +211,7 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="grid grid-cols-6 gap-6 mt-6">
+                            <div class="grid grid-cols-6 gap-6 mt-1">
                                 <div class="col-span-6 sm:col-span-6">
                                     <label for="reference_name"
                                         class="block text-sm font-medium leading-5 text-gray-700">Nama <span
@@ -275,7 +310,6 @@
                                         {{ $message }}
                                     </p>
                                     @enderror
-
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3">
@@ -295,8 +329,7 @@
 
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="reference_phone"
-                                        class="block text-sm font-medium leading-5 text-gray-700">No Telefon - cth
-                                        (0123456789) <span class="text-red-700">*</span></label>
+                                        class="block text-sm font-medium leading-5 text-gray-700">No Telefon - cth (0123456789) <span class="text-red-700">*</span></label>
                                     <input id="reference_phone" name="reference_phone"
                                         value="{{ isset(auth()->user()->pinjaman->reference_phone) ? auth()->user()->pinjaman->reference_phone : old('reference_phone') }}"
                                         class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
@@ -361,38 +394,17 @@
                             {{-- kad pengenalan --}}
                             @include('upload.ic')
 
-                            @if(isset(auth()->user()->peribadi->marital) && auth()->user()->peribadi->marital == 'Berkahwin') 
+                            @if(isset(auth()->user()->peribadi->marital) && auth()->user()->peribadi->marital == 'Berkahwin')
                                 {{-- kad pengenalan pasangan--}}
                                 @include('upload.ic_partner')
                             @endif
 
-                            {{-- lesen--}}
-                            @include('upload.license')
-
-                            @if(!auth()->user()->pinjaman || auth()->user()->pinjaman->purpose == 1)
-                                {{-- sebut harga--}}
-                                @include('upload.asking_price')
-                            @endif
-
-                            @if(!auth()->user()->pinjaman || auth()->user()->pinjaman->purpose == 2)
-                                {{-- geran --}}
-                                @include('upload.grant')
-                            @endif
-
-                            @if(!auth()->user()->pinjaman || auth()->user()->pinjaman->purpose == 2)
-                                {{-- cukai --}}
-                                @include('upload.tax')
-                            @endif
-
-                            @if(!auth()->user()->pinjaman || auth()->user()->pinjaman->purpose == 2)
-                                {{-- moto pic --}}
-                                @include('upload.moto_pic')
-                            @endif
-                            
-                            {{-- e-hailing --}}
-                            @include('upload.ehailing')
+                            {{-- ssm --}}
+                            @include('upload.ssm')
                             {{-- bank --}}
                             @include('upload.bank')
+                            {{-- bank company --}}
+                            @include('upload.bank_comp')
                             {{-- utility --}}
                             @include('upload.utility')
                         </div>
@@ -419,28 +431,6 @@
 </div>
 
 @push('js')
-<script>
-    function purposeFunction() {
-        var x = document.getElementById("purpose").value;
-
-        if(x == 2) { // baiki
-            document.getElementById("purchase_price").value = "";
-            $(".beli").css("display", "none");
-            $("#ask_div").css("display", "none");
-            $("#grant_div").css("display", "block");
-            $("#tax_div").css("display", "block");
-            $("#moto_pic_div").css("display", "block");
-        } else { //beli
-            document.getElementById("purchase_price").value = "";
-            $(".beli").css("display", "block");
-            $("#ask_div").css("display", "block");
-            $("#grant_div").css("display", "none");
-            $("#tax_div").css("display", "none");
-            $("#moto_pic_div").css("display", "none");
-        }
-    }
-</script>
-
 <script>
     $("#ic-div1").click(function (event) {
         if (!$(event.target).is('#ic1')) {
@@ -491,7 +481,7 @@
                 '_method': 'DELETE'
             },
             success: function () {
-                window.location = "{{ url('mobile')}}";
+                window.location = "{{ url('sptp')}}";
             }
         });
     }
@@ -589,7 +579,7 @@
                 '_method': 'DELETE'
             },
             success: function () {
-                window.location = "{{ url('mobile')}}";
+                window.location = "{{ url('sptp')}}";
             }
         });
     }
@@ -636,64 +626,62 @@
     }
 
 </script>
-
 <script>
-    $("#ask-div").click(function (event) {
-        if (!$(event.target).is('#ask')) {
-            $(this).find("#ask").trigger('click');
+    $("#ssm-div").click(function (event) {
+        if (!$(event.target).is('#ssm')) {
+            $(this).find("#ssm").trigger('click');
         }
     });
 
-    $("input[id='ask']").on('change', function () {
-        askreadURL(this);
-        askcheckFiles();
+    $("input[id='ssm']").on('change', function () {
+        ssmreadURL(this);
+        ssmcheckFiles();
     });
 
-    var askcheckFiles = function () {
-        if (document.getElementById("ask").files.length > 0) {
-            $('#ask-uploaded-div').css('display', 'block');
-            $('#ask-div').css('display', 'none');
+    var ssmcheckFiles = function () {
+        if (document.getElementById("ssm").files.length > 0) {
+            $('#ssm-uploaded-div').css('display', 'block');
+            $('#ssm-div').css('display', 'none');
         } else {
-            $('#ask-uploaded-div').css('display', 'none');
-            $('#ask-div').css('display', 'block');
+            $('#ssm-uploaded-div').css('display', 'none');
+            $('#ssm-div').css('display', 'block');
         }
     }
 
-    var askreadURL = function (input) {
-        var fullPath = document.getElementById('ask').value;
+    var ssmreadURL = function (input) {
+        var fullPath = document.getElementById('ssm').value;
         if (fullPath) {
             var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
             var filename = fullPath.substring(startIndex);
             if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
                 filename = filename.substring(1);
             }
-            document.getElementById("ask-uploaded").textContent = filename;
+            document.getElementById("ssm-uploaded").textContent = filename;
         }
     }
 
-    function askDelFile() {
-        $("#ask").val('');
-        $('#ask-uploaded-div').css('display', 'none');
-        $('#ask-div').css('display', 'block');
+    function ssmDelFile() {
+        $("#ssm").val('');
+        $('#ssm-uploaded-div').css('display', 'none');
+        $('#ssm-div').css('display', 'block');
     }
 
-    function deleteAsk(id) {
+    function deleteSSM(id) {
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $.ajax({
             type: 'POST',
-            url: "{{ url('mobile-deleteAsk')}}" + '/' + id,
+            url: "{{ url('mobile-deleteSSM')}}" + '/' + id,
             data: {
                 '_token': CSRF_TOKEN,
                 '_method': 'DELETE'
             },
             success: function () {
-                window.location = "{{ url('mobile')}}";
+                window.location = "{{ url('cbrm')}}";
             }
         });
     }
 
 </script>
-
 <script>
     $("#bank-div").click(function (event) {
         if (!$(event.target).is('#bank')) {
@@ -744,7 +732,63 @@
                 '_method': 'DELETE'
             },
             success: function () {
-                window.location = "{{ url('mobile')}}";
+                window.location = "{{ url('sptp')}}";
+            }
+        });
+    }
+
+</script>
+<script>
+    $("#bank_comp-div").click(function (event) {
+        if (!$(event.target).is('#bank_comp')) {
+            $(this).find("#bank_comp").trigger('click');
+        }
+    });
+
+    $("input[id='bank_comp']").on('change', function () {
+        bankcompreadURL(this);
+        bankcompcheckFiles();
+    });
+
+    var bankcompcheckFiles = function () {
+        if (document.getElementById("bank_comp").files.length > 0) {
+            $('#bank_comp-uploaded-div').css('display', 'block');
+            $('#bank_comp-div').css('display', 'none');
+        } else {
+            $('#bank_comp-uploaded-div').css('display', 'none');
+            $('#bank_comp-div').css('display', 'block');
+        }
+    }
+
+    var bankcompreadURL = function (input) {
+        var fullPath = document.getElementById('bank_comp').value;
+        if (fullPath) {
+            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+            var filename = fullPath.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+            }
+            document.getElementById("bank_comp-uploaded").textContent = filename;
+        }
+    }
+
+    function bankCompDelFile() {
+        $("#bank_comp").val('');
+        $('#bank_comp-uploaded-div').css('display', 'none');
+        $('#bank_comp-div').css('display', 'block');
+    }
+
+    function deleteBankComp(id) {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            type: 'POST',
+            url: "{{ url('mobile-deleteBankComp')}}" + '/' + id,
+            data: {
+                '_token': CSRF_TOKEN,
+                '_method': 'DELETE'
+            },
+            success: function () {
+                window.location = "{{ url('sptp')}}";
             }
         });
     }
@@ -800,286 +844,11 @@
                 '_method': 'DELETE'
             },
             success: function () {
-                window.location = "{{ url('mobile')}}";
+                window.location = "{{ url('sptp')}}";
             }
         });
     }
 
-</script>
-<script>
-    $("#support_letter-div").click(function (event) {
-        if (!$(event.target).is('#support_letter')) {
-            $(this).find("#support_letter").trigger('click');
-        }
-    });
-
-    $("input[id='support_letter']").on('change', function () {
-        supportLetterreadURL(this);
-        supportLettercheckFiles();
-    });
-
-    var supportLettercheckFiles = function () {
-        if (document.getElementById("support_letter").files.length > 0) {
-            $('#support_letter-uploaded-div').css('display', 'block');
-            $('#support_letter-div').css('display', 'none');
-        } else {
-            $('#support_letter-uploaded-div').css('display', 'none');
-            $('#support_letter-div').css('display', 'block');
-        }
-    }
-
-    var supportLetterreadURL = function (input) {
-        var fullPath = document.getElementById('support_letter').value;
-        if (fullPath) {
-            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-            var filename = fullPath.substring(startIndex);
-            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-                filename = filename.substring(1);
-            }
-            document.getElementById("support_letter-uploaded").textContent = filename;
-        }
-    }
-
-    function support_letterDelFile() {
-        $("#support_letter").val('');
-        $('#support_letter-uploaded-div').css('display', 'none');
-        $('#support_letter-div').css('display', 'block');
-    }
-
-    function deleteSupportLetter(id) {
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('mobile-deleteSupportLetter')}}" + '/' + id,
-            data: {
-                '_token': CSRF_TOKEN,
-                '_method': 'DELETE'
-            },
-            success: function () {
-                window.location = "{{ url('mobile')}}";
-            }
-        });
-    }
-</script>
-<script>
-    $("#motor_pic-div").click(function (event) {
-        if (!$(event.target).is('#motor_pic')) {
-            $(this).find("#motor_pic").trigger('click');
-        }
-    });
-
-    $("input[id='motor_pic']").on('change', function () {
-        MotorPicreadURL(this);
-        MotorPiccheckFiles();
-    });
-
-    var MotorPiccheckFiles = function () {
-        if (document.getElementById("motor_pic").files.length > 0) {
-            $('#motor_pic-uploaded-div').css('display', 'block');
-            $('#motor_pic-div').css('display', 'none');
-        } else {
-            $('#motor_pic-uploaded-div').css('display', 'none');
-            $('#motor_pic-div').css('display', 'block');
-        }
-    }
-
-    var MotorPicreadURL = function (input) {
-        var fullPath = document.getElementById('motor_pic').value;
-        if (fullPath) {
-            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-            var filename = fullPath.substring(startIndex);
-            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-                filename = filename.substring(1);
-            }
-            document.getElementById("motor_pic-uploaded").textContent = filename;
-        }
-    }
-
-    function motor_picDelFile() {
-        $("#motor_pic").val('');
-        $('#motor_pic-uploaded-div').css('display', 'none');
-        $('#motor_pic-div').css('display', 'block');
-    }
-
-    function deleteMotorPic(id) {
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('mobile-deleteMotorcyclePicture')}}" + '/' + id,
-            data: {
-                '_token': CSRF_TOKEN,
-                '_method': 'DELETE'
-            },
-            success: function () {
-                window.location = "{{ url('mobile')}}";
-            }
-        });
-    }
-</script>
-<script>
-    $("#license-div").click(function (event) {
-        if (!$(event.target).is('#license')) {
-            $(this).find("#license").trigger('click');
-        }
-    });
-
-    $("input[id='license']").on('change', function () {
-        LicensereadURL(this);
-        LicensecheckFiles();
-    });
-
-    var LicensecheckFiles = function () {
-        if (document.getElementById("license").files.length > 0) {
-            $('#license-uploaded-div').css('display', 'block');
-            $('#license-div').css('display', 'none');
-        } else {
-            $('#license-uploaded-div').css('display', 'none');
-            $('#license-div').css('display', 'block');
-        }
-    }
-
-    var LicensereadURL = function (input) {
-        var fullPath = document.getElementById('license').value;
-        if (fullPath) {
-            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-            var filename = fullPath.substring(startIndex);
-            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-                filename = filename.substring(1);
-            }
-            document.getElementById("license-uploaded").textContent = filename;
-        }
-    }
-
-    function licenseDelFile() {
-        $("#license").val('');
-        $('#license-uploaded-div').css('display', 'none');
-        $('#license-div').css('display', 'block');
-    }
-
-    function deleteLicense(id) {
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('mobile-deleteDrivingLicense')}}" + '/' + id,
-            data: {
-                '_token': CSRF_TOKEN,
-                '_method': 'DELETE'
-            },
-            success: function () {
-                window.location = "{{ url('mobile')}}";
-            }
-        });
-    }
-</script>
-<script>
-    $("#grant-div").click(function (event) {
-        if (!$(event.target).is('#grant')) {
-            $(this).find("#grant").trigger('click');
-        }
-    });
-
-    $("input[id='grant']").on('change', function () {
-        GrantreadURL(this);
-        GrantcheckFiles();
-    });
-
-    var GrantcheckFiles = function () {
-        if (document.getElementById("grant").files.length > 0) {
-            $('#grant-uploaded-div').css('display', 'block');
-            $('#grant-div').css('display', 'none');
-        } else {
-            $('#grant-uploaded-div').css('display', 'none');
-            $('#grant-div').css('display', 'block');
-        }
-    }
-
-    var GrantreadURL = function (input) {
-        var fullPath = document.getElementById('grant').value;
-        if (fullPath) {
-            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-            var filename = fullPath.substring(startIndex);
-            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-                filename = filename.substring(1);
-            }
-            document.getElementById("grant-uploaded").textContent = filename;
-        }
-    }
-
-    function grantDelFile() {
-        $("#grant").val('');
-        $('#grant-uploaded-div').css('display', 'none');
-        $('#grant-div').css('display', 'block');
-    }
-
-    function deleteGrant(id) {
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('mobile-deleteMotorcycleGrant')}}" + '/' + id,
-            data: {
-                '_token': CSRF_TOKEN,
-                '_method': 'DELETE'
-            },
-            success: function () {
-                window.location = "{{ url('mobile')}}";
-            }
-        });
-    }
-</script>
-<script>
-    $("#roadtax-div").click(function (event) {
-        if (!$(event.target).is('#roadtax')) {
-            $(this).find("#roadtax").trigger('click');
-        }
-    });
-
-    $("input[id='roadtax']").on('change', function () {
-        RoadtaxreadURL(this);
-        RoadtaxcheckFiles();
-    });
-
-    var RoadtaxcheckFiles = function () {
-        if (document.getElementById("roadtax").files.length > 0) {
-            $('#roadtax-uploaded-div').css('display', 'block');
-            $('#roadtax-div').css('display', 'none');
-        } else {
-            $('#roadtax-uploaded-div').css('display', 'none');
-            $('#roadtax-div').css('display', 'block');
-        }
-    }
-
-    var RoadtaxreadURL = function (input) {
-        var fullPath = document.getElementById('roadtax').value;
-        if (fullPath) {
-            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-            var filename = fullPath.substring(startIndex);
-            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-                filename = filename.substring(1);
-            }
-            document.getElementById("roadtax-uploaded").textContent = filename;
-        }
-    }
-
-    function roadtaxDelFile() {
-        $("#roadtax").val('');
-        $('#roadtax-uploaded-div').css('display', 'none');
-        $('#roadtax-div').css('display', 'block');
-    }
-
-    function deleteRoadtax(id) {
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('mobile-deleteRoadtax')}}" + '/' + id,
-            data: {
-                '_token': CSRF_TOKEN,
-                '_method': 'DELETE'
-            },
-            success: function () {
-                window.location = "{{ url('mobile')}}";
-            }
-        });
-    }
 </script>
 
 <script>

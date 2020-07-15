@@ -55,7 +55,7 @@
         <header class="py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                 <h1 class="text-3xl leading-9 font-bold text-white">
-                    Skim Pembiayaan TEKUN Mobilepreneur V2.0
+                    Skim Pembiayaan Mikro TEKUN PENJANA (SPTP)
                 </h1>
             </div>
 
@@ -207,12 +207,12 @@
 @if (Session::has('success') || Session::has('error'))
 <script>
     $(document).ready(function(){
-            setTimeout(function(){ 
-                $(".notification").animate({opacity: "1"}); 
+            setTimeout(function(){
+                $(".notification").animate({opacity: "1"});
             }, 1000);
-            
-            setTimeout(function(){ 
-                $(".notification").animate({opacity: "0"}); 
+
+            setTimeout(function(){
+                $(".notification").animate({opacity: "0"});
             }, 10000);
         });
 </script>

@@ -1,15 +1,15 @@
 <div class="mt-6">
     <label for="profile_pic" class="block text-sm leading-5 font-medium text-gray-700">
-        Surat Sokongan Syarikat e-Hailing<span class="text-red-700">*</span>
+        Penyata Bank (Syarikat)
     </label>
-    <div id="support_letter-div"
-        class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 @error('doc_support_letter') border-red-500 @enderror border-dashed rounded-md cursor-pointer"
+    <div id="bank_comp-div"
+        class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 @error('doc_bank') border-red-500 @enderror border-dashed rounded-md cursor-pointer"
         style="display: block;">
-        @if(isset(auth()->user()->pinjaman->document_support_letter))
+        @if(isset(auth()->user()->pinjaman->document_bank_comp_statements))
         <div class="flex" x-data="{ open: false }">
             <div class="justify-center">
                 <span class="inline-flex rounded-md shadow-sm">
-                    <a href="{{ asset('storage/'.auth()->user()->ic_no. '/' . auth()->user()->pinjaman->document_support_letter) }}"
+                    <a href="{{ asset('storage/'.auth()->user()->ic_no. '/' . auth()->user()->pinjaman->document_bank_comp_statements) }}"
                         target="_blank" type="button"
                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
@@ -61,12 +61,11 @@
                         </div>
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                Padam Fail Surat Sokongan Syarikat!
+                                Padam Fail Penyata Bank (Syarikat)!
                             </h3>
                             <div class="mt-2">
                                 <p class="text-sm leading-5 text-gray-500">
-                                    Adakah anda pasti untuk memadam fail Surat Sokongan
-                                    Syarikat ini?
+                                    Adakah anda pasti untuk memadam fail Penyata Bank (Syarikat) ini?
                                 </p>
                             </div>
                         </div>
@@ -75,7 +74,7 @@
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                             <button type="button"
                                 class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-                                onclick="event.preventDefault();deleteSupportLetter({{auth()->user()->pinjaman->id}})">
+                                onclick="event.preventDefault();deleteBankComp({{auth()->user()->pinjaman->id}})">
                                 Padam!
                             </button>
                         </span>
@@ -93,7 +92,7 @@
         </div>
         @else
         <div class="text-center">
-            <input type="file" name="doc_support_letter" id="support_letter" class="hidden" />
+            <input type="file" name="doc_bank_comp" id="bank_comp" class="hidden" />
             <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
                 <path
                     d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
@@ -106,28 +105,29 @@
                 </a>
             </p>
             <p class="mt-1 text-xs text-gray-500">
-                Surat sokongan Syarikat e-Hailing / Bukti pendaftaran bersama Syarikat
-                e-Hailing
+                Salinan buku penyata bank syarikat (muka pertama & transaksi
+                terakhir)
             </p>
             <p class="mt-1 text-xs text-gray-500">
                 PDF sahaja
             </p>
-            @error('doc_support_letter')
+
+            @error('doc_bank_comp')
             <p class="text-red-500 text-xs italic mt-4">
-                Ruangan Dokumen Sokongan - Surat Sokongan Syarikat e-Hailing diperlukan
+                {{ $message }}
             </p>
             @enderror
         </div>
         @endif
     </div>
     {{-- test --}}
-    <div id="support_letter-uploaded-div"
+    <div id="bank_comp-uploaded-div"
         class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md cursor-pointer"
         style="display:none">
         <span class="mt-3 inline-flex rounded-md shadow-sm">
-            <a id="support_letter-buttonDel" type="button"
+            <a id="bank_comp-buttonDel" type="button"
                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150"
-                onclick="support_letterDelFile()">
+                onclick="bankCompDelFile()">
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
                     <path fill-rule="evenodd"
                         d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -136,7 +136,7 @@
                 Padam Fail
             </a>
         </span>
-        <span id="support_letter-uploaded">Tiada fail diupload.</span>
+        <span id="bank_comp-uploaded">Tiada fail diupload.</span>
     </div>
     {{-- end test --}}
 </div>
