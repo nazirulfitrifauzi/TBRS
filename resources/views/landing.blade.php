@@ -13,7 +13,7 @@
                     <div class="flex items-center justify-between h-16 px-4 sm:px-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-16 w-16" src="{{ asset('img') }}/logo_tekun.png" />
+                                <img class="h-16 w-16" src="{{ secure_asset('public/img') }}/logo_tekun.png" />
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
@@ -56,7 +56,7 @@
         <header class="py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                 <h1 class="text-3xl leading-9 font-bold text-white">
-                    Skim Pembiayaan Mikro TEKUN PENJANA (SPTP)
+                    TEKUN BUSINESS RECOVERY SCHEME (TBRS)
                 </h1>
             </div>
         </header>
@@ -74,7 +74,7 @@
                             <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
                                 <div class="flex">
                                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                        SPTP
+                                        TBRS
                                     </h3>
                                     <a href="{{ route('mobile') }}" type="button"
                                         class="ml-auto inline-flex items-center px-2 py-2 border border-transparent text-xs leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150 sm:text-base">
@@ -94,35 +94,104 @@
                                 <dl class="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
                                     <div class="sm:col-span-2">
                                         <dt class="mt-1 text-sm leading-5 text-gray-900">
-                                            Pengenalan Pembiayaan
+                                            Skim Pembiayaan
                                         </dt>
                                         <dd class="text-sm leading-5 font-medium text-gray-500">
-                                            Skim Pembiayaan Pemulihan Mobilepreneur merupakan salah satu inisiatif
-                                            Kerajaan yang dilaksanakan melalui TEKUN Nasional unutk memberi peluang
-                                            menjana pendapatan kepada golongan yang hilang punca pendapatan serta
-                                            terjejas akibat penularan COVID-19 serta arahan PKP yang bermula 18 Mac 2020
-                                            yang lalu. Skim ini menyediakan kemudahan pembiayaan modal kepada usahawan
-                                            yang menjalankan perkhidmatan penghantaran makanan atau barangan menggunakan
-                                            motosikal.
-                                        </dd>
-                                        <dd class="mt-4 text-sm leading-5 font-medium text-gray-500">
-                                            Permohonan pembiayaan skim ini dibuka sehingga Septembar 2020 atau sehingga
-                                            peruntukan dana digunakan sepenuhnya.
+                                            Pembiayaan modal diberikan kepada usahawan TEKUN sedia ada atau usahawan
+                                            baru bagi memulihkan semula perniagaan sedia ada.
                                         </dd>
                                     </div>
                                     <div class="sm:col-span-2">
-                                        <dt class="mt-1 text-sm leading-5 text-gray-900">
-                                            Nilai & Tempoh Pembiayaan
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Nilai Pembiayaan
                                         </dt>
                                         <dd class="text-sm leading-5 font-medium text-gray-500">
-                                            Nilai Pembiayaan yang akan disalurkan adalah dari RM1,000 sehingga RM10,000
+                                            Nilai Pembiayaan yang akan disalurkan adalah sehingga <b>RM10,000</b>
                                             bagi setiap usahawan mengikut kelayakan serta tertakluk kepada terma dan
                                             syarat-syarat asas TEKUN Nasional.
                                         </dd>
                                     </div>
                                     <div class="sm:col-span-2">
-                                        <dt class="mt-1 text-sm leading-5 text-gray-900">
-                                            Syarat-syarat Asas Pembiayaan CBRM adalah sama seperti syarat pembiayaan
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Tempoh Pembiayaan
+                                        </dt>
+                                        <dd class="text-sm leading-5 font-medium text-gray-500">
+                                            Tempoh bayaran balik pembiayaan adalah sehingga <b>3 tahun</b>.
+                                        </dd>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Kadar Keuntungan
+                                        </dt>
+                                        <dd class="text-sm leading-5 font-medium text-gray-500">
+                                            Usahawan diminta membayar kadar keuntungan sebanyak <b>3.5%</b> daripada
+                                            nilai pembiayaan setiap tahun sepanjang tempoh pembiayaan. Kadar keuntungan
+                                            ini hendaklah dibuat bersama dengan bayaran balik pembiayaan.
+                                        </dd>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Tempoh Penangguhan
+                                        </dt>
+                                        <dd class="text-sm leading-5 font-medium text-gray-500">
+                                            Tempoh penangguhan selama 6 bulan.
+                                        </dd>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Yuran Proses
+                                        </dt>
+                                        <dd class="text-sm leading-5 font-medium text-gray-500">
+                                            <table
+                                                class="border-collapse table-auto w-1/3 whitespace-no-wrap bg-white table-striped relative">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>Pembiayaan</th>
+                                                        <th>Yuran Proses</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td class="border-dashed border-t border-gray-200">RM 1,000 - RM
+                                                            2,000</td>
+                                                        <td class="border-dashed border-t border-gray-200">RM 20</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="border-dashed border-t border-gray-200">RM 2,001 - RM
+                                                            5,000</td>
+                                                        <td class="border-dashed border-t border-gray-200">RM 50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="border-dashed border-t border-gray-200">RM 5,001 - RM
+                                                            10,000</td>
+                                                        <td class="border-dashed border-t border-gray-200">RM 100</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </dd>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Insuran Berkelompok
+                                        </dt>
+                                        <dd class="text-sm leading-5 font-medium text-gray-500">
+                                            Setiap usahawan yang terlibat diwajibkan untuk mendapatkan perlindungan
+                                            kredit Takaful yang ditetapkan oleh TEKUN Nasional.
+                                        </dd>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Pendahuluan Bayaran Balik (Advance Payment)
+                                        </dt>
+                                        <dd class="text-sm leading-5 font-medium text-gray-500">
+                                            Pemohon yang mendapat pembiayaan dibawah program ini diberikan
+                                            <b>pengecualian potongan Pendahuluan Bayaran Balik (Advance Payment)</b>
+                                            sebanyak 1 bulan bayaran daripada pembiayaan yang diluluskan.
+                                        </dd>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-sm leading-5 text-gray-900">
+                                            Syarat-syarat Asas Pembiayaan TBRS adalah sama seperti syarat pembiayaan
                                             yang sedia ada seperti berikut:
                                         </dt>
                                         <dd class="text-sm leading-5 font-medium text-gray-500">
@@ -142,40 +211,33 @@
                                                 </tr>
                                                 <tr>
                                                     <td>4.</td>
-                                                    <td>Mempunyai lesen memandu motosikal yang sah.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5.</td>
-                                                    <td>Mempunyai pelantikan yang sah daripada syarikat e-hailing yang
-                                                        berdaftar.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>6.</td>
-                                                    <td>Mempunyai motosikal sendiri yang berdaftar dan sah – bagi
-                                                        permohonan baik pulih motosikal dan modal pusingan.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>7.</td>
-                                                    <td>Mengemukakan dokumen asal sebutharga pembelian motosikal
-                                                        daripada pembekal yang sah - bagi permohonan membeli
-                                                        motosikal.
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>8.</td>
                                                     <td>Terlibat secara langsung atau separuh masa dalam aktiviti
                                                         perniagaan.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>9.</td>
-                                                    <td>Peserta perlu mematuhi garis panduan serta terma dan
-                                                        syarat-syarat yang dikuatkuasakan oleh Kementerian Pengangkutan
-                                                        Malaysia ( MOT )</td>
+                                                    <td>5.</td>
+                                                    <td>Mempunyai daftar perniagaan (SSM), lesen penjaja/permit yang sah
+                                                        daripada PBT atau surat pengesahan perniagaan..</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>10.</td>
-                                                    <td>Pemohon yang mendapat surat sokongan dan disyorkan oleh
-                                                        mana-mana syarikat e-hailing adalah diberikan keutamaan.</td>
+                                                    <td>6.</td>
+                                                    <td>Terlibat secara langsung atau separuh masa dalam aktiviti
+                                                        perniagaan.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7.</td>
+                                                    <td>Bebas daripada sebarang tindakan kebankrapan.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8.</td>
+                                                    <td>Syarikat Sdn. Bhd. dengan had modal berbayar tidak melebihi RM
+                                                        300,000.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9.</td>
+                                                    <td>Baki pembiayaan sedia ada dengan TEKUN Nasional tidak melebihi
+                                                        RM 100,000.</td>
                                                 </tr>
                                             </table>
                                         </dd>

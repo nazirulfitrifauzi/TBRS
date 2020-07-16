@@ -13,7 +13,7 @@
                     <div class="flex items-center justify-between h-16 px-4 sm:px-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-16 w-16" src="{{ asset('img') }}/logo_tekun.png" />
+                                <img class="h-16 w-16" src="{{ secure_asset('public/img') }}/logo_tekun.png" />
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
@@ -55,7 +55,7 @@
         <header class="py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                 <h1 class="text-3xl leading-9 font-bold text-white">
-                    Skim Pembiayaan Mikro TEKUN PENJANA (SPTP)
+                    TEKUN BUSINESS RECOVERY SCHEME (TBRS)
                 </h1>
             </div>
 
@@ -154,15 +154,19 @@
                         <div class="px-4 py-5 sm:p-6">
                             <!-- Content goes here -->
                             <div class="">
-                                <h4 class="flex justify-center text-lg leading-6 font-medium text-gray-900">
-                                    Permohonan bagi
-                                </h4>
-                                <h4 class="flex justify-center text-lg leading-6 font-medium text-gray-900">
-                                    {{ strtoupper(auth()->user()->name) }} (
+                                <p class="text-center text-lg leading-6 font-medium text-gray-900">Permohonan TBRS bagi
+                                </p>
+
+                                <p class="text-center text-lg leading-6 font-medium text-gray-900">
+                                    {{ strtoupper(auth()->user()->name) }}</p>
+                                <p class="text-center text-lg leading-6 font-medium text-gray-900">No. K/P:
                                     {{ substr(auth()->user()->ic_no,0,6) }}-{{ substr(auth()->user()->ic_no,6,2) }}-{{ substr(auth()->user()->ic_no,8,4) }}
-                                    )
-                                </h4>
-                                <h2 class="mt-4 flex justify-center text-3xl leading-8 font-medium text-gray-900">
+                                </p>
+                                <p class="text-center text-lg leading-6 font-medium text-gray-900">Alamat Emel:
+                                    {{ auth()->user()->email }}</p>
+                                <p class="text-center text-lg leading-6 font-medium text-gray-900">No. HP:
+                                    {{ auth()->user()->peribadi->phone_hp }}</p>
+                                <p class="mt-4 text-center text-3xl leading-8 font-medium text-gray-900">
                                     @if (auth()->user()->status == 1 || auth()->user()->status == 2 ||
                                     auth()->user()->status == 3 || auth()->user()->status == 4 || auth()->user()->status
                                     == 5 || auth()->user()->status == 6)
@@ -174,24 +178,7 @@
                                     @elseif(auth()->user()->status == 7)
                                     Permohonan KIV
                                     @endif
-                                </h2>
-                                @if(auth()->user()->status == 7)
-                                <h4 class="mt-4 flex justify-center text-lg leading-6 font-medium text-gray-900">
-                                    {{ strtoupper($catatan->catatan) }}. <br>Sila muat naik dokumen yang tidak lengkap
-                                    disini:
-                                </h4>
-                                <div class="flex justify-center mt-4">
-                                    <a href="http://tiny.cc/CBRM2UPDATE" target="_blank" type="button"
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150"">
-                                            <svg class=" -ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M2 10a4 4 0 004 4h3v3a1 1 0 102 0v-3h3a4 4 0 000-8 4 4 0 00-8 0 4 4 0 00-4 4zm9 4H9V9.414l-1.293 1.293a1 1 0 01-1.414-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 9.414V14z"
-                                            clip-rule="evenodd" fill-rule="evenodd"></path>
-                                        </svg>
-                                        Muat Naik Dokumen
-                                    </a>
-                                </div>
-                                @endif
+                                </p>
                             </div>
                         </div>
                     </div>
