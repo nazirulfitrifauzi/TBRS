@@ -65,27 +65,27 @@ class MobileController extends Controller
             ->get();
 
         $bank = Bank::where('res', '0')
-            ->orderby('flag', 'DESC')
+            ->orderby('nama_bank', 'ASC')
             ->get();
 
         $sektor = Sektor::where(function ($q) {
             $q->where('lain', '1')
-            ->orWhere('sektor', 'Peruncitan')
-            ->orWhere('sektor', 'Perkhidmatan')
-            ->orWhere('sektor', 'Pembuatan')
-            ->orWhere('sektor', 'Kontraktor Kecil')
-            ->orWhere('sektor', 'Tani');
+                ->orWhere('sektor', 'Peruncitan')
+                ->orWhere('sektor', 'Perkhidmatan')
+                ->orWhere('sektor', 'Pembuatan')
+                ->orWhere('sektor', 'Kontraktor Kecil')
+                ->orWhere('sektor', 'Tani');
         })->get();
 
         if (is_null(auth()->user()->perniagaan)) {
             $aktiviti = Aktiviti::where('status', '1')
-                        ->orderBy('aktiviti', 'ASC')
-                        ->get();
+                ->orderBy('aktiviti', 'ASC')
+                ->get();
         } else {
             $aktiviti = Aktiviti::where('idsektor', auth()->user()->perniagaan->business_sector)
-                        ->where('status', '=', '1')
-                        ->orderBy('Aktiviti', 'ASC')
-                        ->get();
+                ->where('status', '=', '1')
+                ->orderBy('Aktiviti', 'ASC')
+                ->get();
         }
 
         if (auth()->user()->submit == "1" && auth()->user()->scheme_code == '1134') {
@@ -534,7 +534,7 @@ class MobileController extends Controller
             unlink(public_path('storage/' . $ic_no . '/' . $ic1_name));
             unlink(public_path('storage/' . $ic_no . '/' . $ic2_name));
 
-            if(auth()->user()->peribadi->marital == 'Berkahwin') {
+            if (auth()->user()->peribadi->marital == 'Berkahwin') {
                 $icP1 = $request->file('doc_icP_no1');
                 $icP1_name = auth()->user()->ic_no . '_icP1.' . $icP1->getClientOriginalExtension();
                 Storage::disk('custom')->putFileAs('/' . $ic_no, $icP1, $icP1_name);
@@ -572,7 +572,7 @@ class MobileController extends Controller
             $bank_name = auth()->user()->ic_no . '_bank.' . $bank->getClientOriginalExtension();
             Storage::disk('custom')->putFileAs('/' . $ic_no, $bank, $bank_name);
 
-            if($request->has('doc_bank_comp')) {
+            if ($request->has('doc_bank_comp')) {
                 $bank_comp = $request->file('doc_bank_comp');
                 $bank_comp_name = auth()->user()->ic_no . '_bank_comp.' . $bank_comp->getClientOriginalExtension();
                 Storage::disk('custom')->putFileAs('/' . $ic_no, $bank_comp, $bank_comp_name);
@@ -581,7 +581,6 @@ class MobileController extends Controller
             $bil = $request->file('doc_bil');
             $bil_name = auth()->user()->ic_no . '_bilUtiliti.' . $bil->getClientOriginalExtension();
             Storage::disk('custom')->putFileAs('/' . $ic_no, $bil, $bil_name);
-
         } else { //pinjaman ade rekod
 
             if (is_null(auth()->user()->pinjaman->document_ic_no)) {
@@ -623,7 +622,7 @@ class MobileController extends Controller
                 $pdf_name_ic = auth()->user()->pinjaman->document_ic_no;
             }
 
-            if(auth()->user()->peribadi->marital == 'Berkahwin'){
+            if (auth()->user()->peribadi->marital == 'Berkahwin') {
                 if (is_null(auth()->user()->pinjaman->document_icP_no)) {
                     // store image before convert
 
@@ -696,7 +695,6 @@ class MobileController extends Controller
             } else {
                 $bil_name = auth()->user()->pinjaman->document_utility;
             }
-
         }
 
         $pinjaman = Pinjaman::updateOrCreate([

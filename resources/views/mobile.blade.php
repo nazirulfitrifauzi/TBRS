@@ -15,7 +15,7 @@
                     <div class="flex items-center justify-between h-16 px-4 sm:px-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-16 w-16" src="{{ asset('img') }}/logo_tekun.png" />
+                                <img class="h-16 w-16" src="{{ secure_asset('public/img') }}/logo_tekun.png" />
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
@@ -59,7 +59,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                 <div class="flex">
                     <h1 class="text-3xl leading-9 font-bold text-white">
-                        Skim Pembiayaan Mikro TEKUN PENJANA (SPTP)
+                        TEKUN BUSINESS RECOVERY SCHEME (TBRS)
                     </h1>
 
                     @if(is_null(auth()->user()->scheme_code))
@@ -222,22 +222,22 @@
                     )
                     x-data="{ tab: 'tab2' }"
                     @elseif(
-                        $errors->has('purchase_price') ||
-                        $errors->has('duration') ||
-                        $errors->has('reference_name') ||
-                        $errors->has('reference_address1') ||
-                        $errors->has('reference_postcode') ||
-                        $errors->has('reference_city') ||
-                        $errors->has('reference_state') ||
-                        $errors->has('reference_relation') ||
-                        $errors->has('reference_phone') ||
-                        $errors->has('doc_ic_no1') ||
-                        $errors->has('doc_ic_no2') ||
-                        $errors->has('doc_icP_no1') ||
-                        $errors->has('doc_icP_no2') ||
-                        $errors->has('doc_bank') ||
-                        $errors->has('doc_bil') ||
-                        $errors->has('doc_ssm')
+                    $errors->has('purchase_price') ||
+                    $errors->has('duration') ||
+                    $errors->has('reference_name') ||
+                    $errors->has('reference_address1') ||
+                    $errors->has('reference_postcode') ||
+                    $errors->has('reference_city') ||
+                    $errors->has('reference_state') ||
+                    $errors->has('reference_relation') ||
+                    $errors->has('reference_phone') ||
+                    $errors->has('doc_ic_no1') ||
+                    $errors->has('doc_ic_no2') ||
+                    $errors->has('doc_icP_no1') ||
+                    $errors->has('doc_icP_no2') ||
+                    $errors->has('doc_bank') ||
+                    $errors->has('doc_bil') ||
+                    $errors->has('doc_ssm')
                     )
                     x-data="{ tab: 'tab3' }"
                     @endif
@@ -274,7 +274,7 @@
                     >
                     <div class="sm:hidden mb-4 flex justify-between">
                         {{-- <span class="inline-flex rounded-md shadow-sm">
-                            <a href="{{ asset('img') }}/cbrm/FAQ_cbrm.pdf" target="_blank" type="button"
+                            <a href="{{ secure_asset('public/img') }}/cbrm/FAQ_cbrm.pdf" target="_blank" type="button"
                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4
                         font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none
                         focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out
@@ -328,42 +328,42 @@
                                                 <p class="text-base leading-5 text-gray-700 mb-2">
                                                     Adalah dengan ini saya mengaku bahawa:
                                                 </p>
-                                                <table width="100%" class="table-auto">
+                                                <table width="100%" class="table-auto text-justify">
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">1.</td>
-                                                        <td class="text-left px-2 py-1">Segala maklumat dan keterangan
+                                                        <td class="px-2 py-1">Segala maklumat dan keterangan
                                                             yang diberikan adalah benar.</td>
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">2.</td>
-                                                        <td class="text-left px-2 py-1">Pihak TEKUN berhak menolak
+                                                        <td class="px-2 py-1">Pihak TEKUN berhak menolak
                                                             permohonan ini jika didapati butir yang diberikan tidak
                                                             benar.</td>
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">3.</td>
-                                                        <td class="text-left px-2 py-1">Saya berikrar untuk membayar
+                                                        <td class="px-2 py-1">Saya berikrar untuk membayar
                                                             jumlah terhutang sepertimana yang dijanjikan.</td>
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">4.</td>
-                                                        <td class="text-left px-2 py-1">Saya memperakukan bahawa
+                                                        <td class="px-2 py-1">Saya memperakukan bahawa
                                                             kemudahan pembiayaan ini tidak akan disalahgunakan.</td>
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">5.</td>
-                                                        <td class="text-left px-2 py-1">Saya bukan seorang yang bankrap.
+                                                        <td class="px-2 py-1">Saya bukan seorang yang bankrap.
                                                         </td>
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">6.</td>
-                                                        <td class="text-left px-2 py-1">Saya dengan ini membenarkan
+                                                        <td class="px-2 py-1">Saya dengan ini membenarkan
                                                             pihak TEKUN Nasional memproses data-data peribadi bagi
                                                             tujuan permohonan pembiayaan.</td>
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">7.</td>
-                                                        <td class="text-left px-2 py-1"><strong>Saya mengakui tidak
+                                                        <td class="px-2 py-1"><strong>Saya mengakui tidak
                                                                 pernah melantik / menggunakan khidmat ejen ( orang
                                                                 tengah ) bagi memproses permohonan ini.Borang dan proses
                                                                 permohonan ini juga tidak dikenakan sebarang bayaran
@@ -371,7 +371,7 @@
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">8.</td>
-                                                        <td class="text-left px-2 py-1">Pemohon dengan ini membenarkan
+                                                        <td class="px-2 py-1">Pemohon dengan ini membenarkan
                                                             <b>TEKUN Nasional</b> / atau pegawainya untuk menggunakan,
                                                             mendedahkan, memberitahu apa-apa maklumat berhubung dengan
                                                             akaun pembiayaan TEKUN / untuk tujuan atau berhubung dengan
@@ -381,7 +381,7 @@
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">9.</td>
-                                                        <td class="text-left px-2 py-1">Pemohon dengan ini membenarkan
+                                                        <td class="px-2 py-1">Pemohon dengan ini membenarkan
                                                             <b>TEKUN Nasional</b> / atau pegawainya untuk penzahiran
                                                             apa-apa maklumat kredit individu yang berkaitan dengan
                                                             kedudukan kredit, kemudahan atau butiran akaun pemohon
@@ -394,7 +394,7 @@
                                                     </tr>
                                                     <tr class="text-sm text-gray-600">
                                                         <td class="align-top px-2 py-1">10.</td>
-                                                        <td class="text-left px-2 py-1">Pemohon dengan ini memberi
+                                                        <td class="px-2 py-1">Pemohon dengan ini memberi
                                                             kebenaran kepada Experian dan / atau CTOS bagi pendedahan
                                                             maklumat kredit, termasuk maklumat kredit perbankan kepada
                                                             <b>TEKUN Nasional</b> / atau pegawainya bagi maksud yang
@@ -489,7 +489,8 @@
 
                             <div class="ml-auto">
                                 {{-- <span class="inline-flex rounded-md shadow-sm">
-                                    <a href="{{ asset('img') }}/cbrm/FAQ_cbrm.pdf" target="_blank" type="button"
+                                    <a href="{{ secure_asset('public/img') }}/cbrm/FAQ_cbrm.pdf" target="_blank"
+                                type="button"
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4
                                 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none
                                 focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition
@@ -544,44 +545,44 @@
                                                         <p class="text-base leading-5 text-gray-700 mb-2">
                                                             Adalah dengan ini saya mengaku bahawa:
                                                         </p>
-                                                        <table width="100%" class="table-auto">
+                                                        <table width="100%" class="table-auto text-justify">
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">1.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Segala maklumat dan keterangan yang diberikan adalah
                                                                     benar.
                                                                 </td>
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">2.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Pihak TEKUN berhak menolak permohonan ini jika
                                                                     didapati butir yang diberikan tidak benar.
                                                                 </td>
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">3.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Saya berikrar untuk membayar jumlah terhutang
                                                                     sepertimana yang dijanjikan.
                                                                 </td>
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">4.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Saya memperakukan bahawa kemudahan pembiayaan ini
                                                                     tidak akan disalahgunakan.
                                                                 </td>
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">5.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Saya bukan seorang yang bankrap.
                                                                 </td>
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">6.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Saya dengan ini membenarkan pihak TEKUN Nasional
                                                                     memproses data-data peribadi bagi tujuan permohonan
                                                                     pembiayaan.
@@ -589,7 +590,7 @@
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">7.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     <strong>Saya mengakui tidak pernah melantik /
                                                                         menggunakan khidmat ejen ( orang tengah ) bagi
                                                                         memproses permohonan ini.Borang dan proses
@@ -599,7 +600,7 @@
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">8.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Pemohon dengan ini membenarkan <b>TEKUN Nasional</b>
                                                                     / atau pegawainya untuk menggunakan, mendedahkan,
                                                                     memberitahu apa-apa maklumat berhubung dengan akaun
@@ -611,7 +612,7 @@
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">9.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Pemohon dengan ini membenarkan <b>TEKUN Nasional</b>
                                                                     / atau pegawainya untuk penzahiran apa-apa maklumat
                                                                     kredit individu yang berkaitan dengan kedudukan
@@ -626,7 +627,7 @@
                                                             </tr>
                                                             <tr class="text-sm text-gray-600">
                                                                 <td class="align-top px-2 py-1">10.</td>
-                                                                <td class="text-left px-2 py-1">
+                                                                <td class="px-2 py-1">
                                                                     Pemohon dengan ini memberi kebenaran kepada Experian
                                                                     dan / atau CTOS bagi
                                                                     pendedahan maklumat kredit, termasuk maklumat kredit
